@@ -35,8 +35,8 @@ def read_requirements(filename):
         return [line for line in file.readlines() if not line.startswith("-")]
 
 
-def read_tests_requirements(filename):
-    return read_requirements(f"social_core/tests/{filename}")
+# def read_tests_requirements(filename):
+#     return read_requirements(f"social_core/tests/{filename}")
 
 
 requirements = read_requirements("requirements-base.txt")
@@ -44,18 +44,18 @@ requirements_openidconnect = read_requirements("requirements-openidconnect.txt")
 requirements_saml = read_requirements("requirements-saml.txt")
 requirements_azuread = read_requirements("requirements-azuread.txt")
 
-tests_requirements = read_tests_requirements("requirements.txt")
+# tests_requirements = read_tests_requirements("requirements.txt")
 
 requirements_all = requirements_openidconnect + requirements_saml + requirements_azuread
 
-tests_requirements = tests_requirements + requirements_all
+# tests_requirements = tests_requirements + requirements_all
 
 setup(
-    name="social-auth-core",
+    name="social-auth-core-tweaked",
     version=read_version(),
-    author="Matias Aguirre",
-    author_email="matiasaguirre@gmail.com",
-    description="Python social authentication made simple.",
+    author="Muyiwa ALASHI",
+    author_email="alashimuyiwa@gmail.com",
+    description="Forked form social-auth-core to fix a bug with PYJWT",
     license="BSD",
     keywords="openid, oauth, saml, social auth",
     url="https://github.com/python-social-auth/social-core",
@@ -100,7 +100,7 @@ setup(
         ]
     },
     include_package_data=True,
-    tests_require=tests_requirements,
+    # tests_require=tests_requirements,
     test_suite="social_core.tests",
     zip_safe=False,
 )
